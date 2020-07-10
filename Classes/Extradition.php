@@ -28,7 +28,7 @@ class extradition
             $stmt->bindParam(':id', $ide);
             if($stmt->execute()){
                 $r = $stmt->fetch(PDO::FETCH_NUM);
-                $this->idextradition=ide;
+                $this->idextradition=$ide;
                 $this->reader_idreader=$r[1];
                 $this->book_idbook=$r[2];
                 $this->dateExtradition=$r[3];
