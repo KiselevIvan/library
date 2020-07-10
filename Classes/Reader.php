@@ -44,7 +44,7 @@ class reader
             $stmt->bindParam(':id', $id);
             if($stmt->execute()){
                 $r = $stmt->fetch(PDO::FETCH_NUM);
-                $this->libraryCardNumber=idr;
+                $this->libraryCardNumber=$idr;
                 $this->fname=$r[1];
                 $this->lname=$r[2];
                 $this->patronymic=$r[3];

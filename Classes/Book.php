@@ -46,7 +46,7 @@ class book
         $stmt->bindParam(':id', $id);
             if($stmt->execute()){
         $b = $stmt->fetch(PDO::FETCH_NUM);
-        $this->idbook=id;
+        $this->idbook=$idb;
         $this->name=$b[1];
         $this->author=$b[2];
         $this->publishingHouse=$b[3];
