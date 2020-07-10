@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/back/connect.php";
-    $stmt = $pdo->prepare("select * from book");
+    $stmt = $pdo->prepare("select * from booksinfo");
     if($stmt->execute()){
         echo json_encode($stmt->fetchall(PDO::FETCH_ASSOC));
     }
