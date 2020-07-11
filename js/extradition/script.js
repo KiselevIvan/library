@@ -18,11 +18,26 @@ $(document).on( 'click','#showReaderbtn',function(){
     });
 });
 
+$(document).on( 'click','#showBookbtn',function(){
+    readerDlg = document.querySelector('#bookDialog');
+    readerDlg.show();
+    var id=$(this).data('id');
+    var urlGet="back/extradition/BookGet.php";
+    var promise = getData(id,urlGet);
+    promise.success(function (data) {
+        fillFormBook(data);
+    });
+});
+
 $(document).on( 'click','#closeReaderDialog',function(){
     readerDlg = document.querySelector('#readerDialog');
     readerDlg.close();
 });
 
+$(document).on( 'click','#closeBookDialog',function(){
+    readerDlg = document.querySelector('#bookDialog');
+    readerDlg.close();
+});
 function showExtradition() {
     $('#openDialog').trigger('click');
     var id = $(this).data('id');
@@ -50,11 +65,12 @@ function fillFormReader(data) {
 function fillFormBook(data) {
     data = JSON.parse(data);
     if(data){
-        $('#fullnameReader').val(data['fullnameReader']);
-        $('#nameBook').val(data['nameBook']);
-        $('#dateExtradition').val(data['dateExtradition']);
-        $('#datePlaneReturn').val(data['datePlaneReturn']);
-        $('#dateReturn').val(data['dateReturn']);
+        $('#name').val(data[1]);
+        $('#author').val(data[2]);
+        $('#pbHouse').val(data[3]);
+        $('#pbYear').val(data[4]);
+        $('#ISBN').val(data[5]);
+        $('#count').val(data[6]);
     }
 }
 

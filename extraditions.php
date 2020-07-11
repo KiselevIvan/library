@@ -52,6 +52,13 @@
         </p>
     </dialog>
 
+    <dialog id="bookDialog">
+        <?php require_once "bookForm.php" ?>
+        <p>
+            <input type="button" id="closeBookDialog" value="Закрыть">
+        </p>
+    </dialog>
+
     <script>
          var addDlg = document.querySelector('#AddDialog');
          document.querySelector('#openDialog').onclick = function() {
