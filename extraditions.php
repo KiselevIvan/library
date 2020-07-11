@@ -21,7 +21,7 @@
     <div>
         <table id="extraditions" style="border-style: solid">
             <thead>
-            <th>Номер читателя</th>
+            <th>Номер выдачи</th>
             <th>ФИО читателя</th>
             <th>Название книги</th>
             <th>Дата выдачи</th>

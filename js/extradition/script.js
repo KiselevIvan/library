@@ -29,6 +29,18 @@ $(document).on( 'click','#showBookbtn',function(){
     });
 });
 
+
+$(document).on( 'click','#returnBookbtn',function(){
+    var id=$(this).data('id');
+    var url="back/extradition/ExtraditionReturnBook.php";
+    $.ajax({
+        url: url,
+        type:"POST",
+        dataType:"html",
+        data:'id='+id
+            });
+});
+
 $(document).on( 'click','#closeReaderDialog',function(){
     readerDlg = document.querySelector('#readerDialog');
     readerDlg.close();
@@ -38,6 +50,7 @@ $(document).on( 'click','#closeBookDialog',function(){
     readerDlg = document.querySelector('#bookDialog');
     readerDlg.close();
 });
+
 function showExtradition() {
     $('#openDialog').trigger('click');
     var id = $(this).data('id');
@@ -96,6 +109,7 @@ function fillTable(data){
             rowNew.children().eq(3).text(value['dateExtradition']);
             rowNew.children().eq(4).text(value['datePlaneReturn']);
             rowNew.children().eq(5).text(value['dateReturn']);
+            rowNew.children().eq(6).append("<a id='returnBookbtn' data-id = "+value['idextradition']+"  href='javascript:void(0)'>Вернуть</a>");
             rowNew.appendTo(table);
         });
     }
