@@ -54,7 +54,7 @@ function fillTable(data){
         var table = $("#readers");
 
         $.each(data, function(key,value) {
-            var rowNew = $("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>");
+            var rowNew = $("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>");
             rowNew.children().eq(0).text(value['libraryCardNumber']);
             rowNew.children().eq(1).text(value['fname']);
             rowNew.children().eq(2).text(value['lname']);
@@ -63,8 +63,9 @@ function fillTable(data){
             rowNew.children().eq(5).text(value['passportSeries']);
             rowNew.children().eq(6).text(value['passportNumber']);
             rowNew.children().eq(7).text(value['phoneNumber']);
-            rowNew.children().eq(8).append("<a id='editbtn' data-id = "+value['libraryCardNumber']+"  href='javascript:void(0)'>Редактировать</a>");
-            rowNew.children().eq(9).append("<a class='delbtn' data-id="+value['libraryCardNumber']+" href='javascript:void(0)'>Удалить</a>");
+            rowNew.children().eq(8).text(value['booksOnHands']);
+            rowNew.children().eq(9).append("<a id='editbtn' data-id = "+value['libraryCardNumber']+"  href='javascript:void(0)'>Редактировать</a>");
+            rowNew.children().eq(10).append("<a class='delbtn' data-id="+value['libraryCardNumber']+" href='javascript:void(0)'>Удалить</a>");
             rowNew.appendTo(table);
         });
     }
