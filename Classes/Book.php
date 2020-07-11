@@ -35,14 +35,14 @@ class book
         $this->yearOfPublishing=$POST["pbYear"];
         $this->ISBN=$POST["ISBN"];
         $this->count=$POST["count"];
-        $this->currentCount=$POST["null"];
+        $this->currentCount=$POST["currentCount"];
     }
 
     public function loadBook($id,$pdo)
     {
         $idb=intval($id);
         if(intval($idb)){
-        $stmt = $pdo->prepare("select * from book where idbook = :id");
+        $stmt = $pdo->prepare("select * from book where idbooksinfo = :id");
         $stmt->bindParam(':id', $id);
             if($stmt->execute()){
         $b = $stmt->fetch(PDO::FETCH_NUM);
@@ -61,7 +61,7 @@ class book
 
     public function insert($pdo)
     {
-        $query="insert into book values(null,:name,:author,:pbHouse,:pbYear,:ISBN,:count,null);";
+        $query="insert into book values(null,:name,:author,:pbHouse,:pbYear,:ISBN,:count);";
         $stmt = $pdo->prepare($query);
 
         $stmt -> bindParam(':name',$this->name);
