@@ -42,7 +42,7 @@ class book
     {
         $idb=intval($id);
         if(intval($idb)){
-        $stmt = $pdo->prepare("select * from book where idbooksinfo = :id");
+        $stmt = $pdo->prepare("select * from booksinfo where idbook = :id");
         $stmt->bindParam(':id', $id);
             if($stmt->execute()){
         $b = $stmt->fetch(PDO::FETCH_NUM);
