@@ -7,14 +7,20 @@ $(document).on('click','#Submit',function(){
 });
 
 $(document).on( 'click','#showReaderbtn',function(){
-    $('#openDialog').trigger('click');
+    readerDlg = document.querySelector('#readerDialog');
+    readerDlg.show();
     var id=$(this).data('id');
     $('#reader').prop('title', id);
-    var urlGet="back/reader/ReaderGet.php";
+    var urlGet="back/extradition/ReaderGet.php";
     var promise = getData(id,urlGet);
     promise.success(function (data) {
-        fillForm(data);
+        fillFormReader(data);
     });
+});
+
+$(document).on( 'click','#closeReaderDialog',function(){
+    readerDlg = document.querySelector('#readerDialog');
+    readerDlg.close();
 });
 
 function showExtradition() {
@@ -28,7 +34,20 @@ function showExtradition() {
     });
 }
 
-function fillForm(data) {
+function fillFormReader(data) {
+    data = JSON.parse(data);
+    if(data){
+        $('#fname').val(data[1]);
+        $('#lname').val(data[2]);
+        $('#patronymic').val(data[3]);
+        $('#address').val(data[4]);
+        $('#passportSeries').val(data[5]);
+        $('#passportNumber').val(data[6]);
+        $('#phoneNumber').val(data[7]);
+    }
+}
+
+function fillFormBook(data) {
     data = JSON.parse(data);
     if(data){
         $('#fullnameReader').val(data['fullnameReader']);

@@ -37,25 +37,32 @@
         </div>`
     </div>
 
- <dialog>
-    <?php require_once "extraditionForm.php" ?>
-    <p>
-        <input type="submit" id="Submit" value="Ок" form="reader">
-        <input type="button" id="closeDialog" value="Отмена">
-    </p>
- </dialog>
+    <dialog id="AddDialog">
+        <?php require_once "extraditionForm.php" ?>
+        <p>
+            <input type="submit" id="Submit" value="Ок" form="reader">
+            <input type="button" id="closeDialog" value="Отмена">
+        </p>
+    </dialog>
+
+    <dialog id="readerDialog">
+        <?php require_once "readerForm.php" ?>
+        <p>
+            <input type="button" id="closeReaderDialog" value="Закрыть">
+        </p>
+    </dialog>
 
     <script>
-         var dlg = document.querySelector('dialog');
+         var addDlg = document.querySelector('#AddDialog');
          document.querySelector('#openDialog').onclick = function() {
-             dlg.show();
+             addDlg.show();
              getBooksList();
              getReadersList();
          }
          document.querySelector('#closeDialog').onclick = function() {
              $('form input[type="text"] , form input[type="date"').val('');
              $('#reader').prop('title', '');
-             dlg.close();
+             addDlg.close();
          }
     </script>
  </body>
