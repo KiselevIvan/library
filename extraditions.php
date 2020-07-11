@@ -67,7 +67,8 @@
              getReadersList();
          }
          document.querySelector('#closeDialog').onclick = function() {
-             $('form input[type="text"] , form input[type="date"').val('');
+             $('#booksList').empty();
+             $('#readersList').empty();
              $('#reader').prop('title', '');
              addDlg.close();
          }
