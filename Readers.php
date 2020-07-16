@@ -18,6 +18,7 @@
     <script src="js/reader/script.js"></script>
 </head>
 <body>
+<input type="button" onclick="document.location='index.php'" value="Назад">
     <div>
         <table id="readers" style="border-style: solid">
             <thead>

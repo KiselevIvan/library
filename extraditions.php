@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Читатели</title>
+    <title>Выдача книг</title>
     <?php require_once "back/connect.php";?>
     <?php require_once "Classes/Extradition.php";?>
 
@@ -18,6 +18,7 @@
     <script src="js/extradition/script.js"></script>
 </head>
 <body>
+<input type="button" onclick="document.location='index.php'" value="Назад">
     <div>
         <table id="extraditions" style="border-style: solid">
             <thead>
